@@ -23,7 +23,7 @@ app.post(`${process.env.API}/genadata`, async (req, res) => {
     res.json({ id, mes });
   } catch (err) {
     console.log(err);
-    res.status(404).send("error");
+    res.status(400).send("error api");
   }
 });
 
@@ -36,7 +36,7 @@ app.post(`${process.env.API}/submitpfb`, async (req, res) => {
     })
     .catch((error) => {
       console.error(error);
-      res.status(404).send("error");
+      res.status(400).send("error api");
     });
 });
 
@@ -49,7 +49,6 @@ app.get(
       .get(`${process.env.LOCAL}/namespaced_shares/${id}/height/${hight}`)
       .then((respo) => {
         res.json(respo.data);
-        console.log(respo.data);
       })
       .catch((error) => {
         console.error(error);
