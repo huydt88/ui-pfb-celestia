@@ -144,12 +144,10 @@ const Hehe = () => {
 
   const handleGen = (e) => {
     e.preventDefault();
-    console.log(mes);
     getGenData(mes)
-      .then((res) => {
-        setId(res.data.id);
+      .then((res) => {    
         setMes(res.data.mes);
-        console.log(res);
+      setId(res.data.id);
       })
       .catch((err) => {
         console.log(err);
